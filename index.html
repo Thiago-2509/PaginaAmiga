@@ -1,0 +1,1337 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <!-- IMPORTANTE PARA CELULARES -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Para mi mejor amiga 💛</title>
+
+
+    <style>
+
+        /* =====================================
+           CONFIGURACIÓN GENERAL
+        ===================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+
+            min-height: 100vh;
+
+            overflow-x: hidden;
+            overflow-y: auto;
+
+            font-family: Arial, sans-serif;
+
+            color: white;
+
+            /* CIELO NOCTURNO */
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #030414 0%,
+                    #090b35 45%,
+                    #17105a 75%,
+                    #26105c 100%
+                );
+        }
+
+
+        /* =====================================
+           ESTRELLAS
+        ===================================== */
+
+        .estrellas {
+
+            position: fixed;
+
+            width: 100%;
+            height: 100%;
+
+            top: 0;
+            left: 0;
+
+            pointer-events: none;
+
+            z-index: 1;
+        }
+
+
+        .estrella {
+
+            position: absolute;
+
+            width: 3px;
+            height: 3px;
+
+            background: white;
+
+            border-radius: 50%;
+
+            animation:
+                brillar 2s infinite alternate;
+        }
+
+
+        @keyframes brillar {
+
+            0% {
+
+                opacity: 0.2;
+
+                transform: scale(0.7);
+            }
+
+            100% {
+
+                opacity: 1;
+
+                transform: scale(1.4);
+            }
+        }
+
+
+        /* =====================================
+           LUNA
+        ===================================== */
+
+        .luna {
+
+            position: fixed;
+
+            width: 90px;
+            height: 90px;
+
+            top: 60px;
+            right: 80px;
+
+            background: #fff8c4;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 20px #fff8c4,
+                0 0 50px rgba(255, 248, 196, 0.5);
+
+            z-index: 2;
+        }
+
+
+        /* =====================================
+           CONTENIDO PRINCIPAL
+        ===================================== */
+
+        .contenido {
+
+            position: relative;
+
+            z-index: 5;
+
+            min-height: 100vh;
+
+            width: 100%;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 100px 20px 220px;
+        }
+
+
+        /* =====================================
+           TÍTULO
+        ===================================== */
+
+        h1 {
+
+            font-size: clamp(30px, 6vw, 50px);
+
+            color: #ffe45c;
+
+            margin-bottom: 20px;
+
+            text-shadow:
+                0 0 10px #ffe45c,
+                0 0 25px rgba(255, 228, 92, 0.6);
+
+            animation:
+                aparecerTitulo 1.5s ease;
+        }
+
+
+        @keyframes aparecerTitulo {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(-30px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        /* =====================================
+           SUBTÍTULO
+        ===================================== */
+
+        .subtitulo {
+
+            width: 100%;
+
+            max-width: 650px;
+
+            font-size: clamp(16px, 3vw, 21px);
+
+            line-height: 1.6;
+
+            margin-bottom: 30px;
+
+            color: #f5f5f5;
+        }
+
+
+        /* =====================================
+           BOTÓN
+        ===================================== */
+
+        button {
+
+            border: none;
+
+            padding: 15px 28px;
+
+            border-radius: 40px;
+
+            background: #ffd83d;
+
+            color: #3b2b00;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 0 15px rgba(255, 216, 61, 0.5);
+
+            transition:
+                transform 0.3s,
+                box-shadow 0.3s;
+        }
+
+
+        button:hover {
+
+            transform: scale(1.08);
+
+            box-shadow:
+                0 0 30px rgba(255, 216, 61, 0.9);
+        }
+
+
+        button:active {
+
+            transform: scale(0.95);
+        }
+
+
+        /* =====================================
+           MENSAJE
+        ===================================== */
+
+        #mensaje {
+
+            display: none;
+
+            width: 100%;
+
+            max-width: 650px;
+
+            margin-top: 30px;
+
+            padding: 30px;
+
+            border-radius: 25px;
+
+            background:
+                rgba(255, 255, 255, 0.10);
+
+            border:
+                1px solid rgba(255, 255, 255, 0.2);
+
+            backdrop-filter: blur(10px);
+
+            -webkit-backdrop-filter: blur(10px);
+
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.3);
+
+            animation:
+                aparecerMensaje 1s ease;
+        }
+
+
+        #mensaje p {
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            color: #ffffff;
+        }
+
+
+        @keyframes aparecerMensaje {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        /* =====================================
+           FLORES
+        ===================================== */
+
+        .flores {
+
+            position: fixed;
+
+            bottom: 0;
+            left: 0;
+
+            width: 100%;
+
+            height: 180px;
+
+            display: flex;
+
+            justify-content: space-evenly;
+
+            align-items: flex-end;
+
+            pointer-events: none;
+
+            z-index: 4;
+        }
+
+
+        /* =====================================
+           FLOR INDIVIDUAL
+        ===================================== */
+
+        .flor {
+
+            position: relative;
+
+            width: 70px;
+
+            height: 160px;
+
+            animation:
+                moverFlor 4s ease-in-out infinite;
+        }
+
+
+        .flor:nth-child(2) {
+
+            animation-delay: 0.5s;
+        }
+
+
+        .flor:nth-child(3) {
+
+            animation-delay: 1s;
+        }
+
+
+        .flor:nth-child(4) {
+
+            animation-delay: 1.5s;
+        }
+
+
+        @keyframes moverFlor {
+
+            0%,
+            100% {
+
+                transform:
+                    rotate(-2deg);
+            }
+
+            50% {
+
+                transform:
+                    rotate(3deg);
+            }
+        }
+
+
+        /* =====================================
+           TALLO
+        ===================================== */
+
+        .tallo {
+
+            position: absolute;
+
+            width: 6px;
+
+            height: 115px;
+
+            bottom: 0;
+
+            left: 32px;
+
+            background: #318b45;
+
+            border-radius: 10px;
+        }
+
+
+        /* =====================================
+           HOJA
+        ===================================== */
+
+        .tallo::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 25px;
+            height: 12px;
+
+            background: #318b45;
+
+            border-radius: 100% 0;
+
+            left: -20px;
+
+            top: 55px;
+
+            transform:
+                rotate(-25deg);
+        }
+
+
+        .tallo::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 25px;
+            height: 12px;
+
+            background: #318b45;
+
+            border-radius: 0 100%;
+
+            left: 3px;
+
+            top: 75px;
+
+            transform:
+                rotate(25deg);
+        }
+
+
+        /* =====================================
+           PÉTALOS
+        ===================================== */
+
+        .petalos {
+
+            position: absolute;
+
+            width: 60px;
+            height: 60px;
+
+            top: 5px;
+            left: 5px;
+        }
+
+
+        .petalo {
+
+            position: absolute;
+
+            width: 27px;
+            height: 37px;
+
+            background: #ffd92f;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 10px rgba(255, 217, 47, 0.7);
+        }
+
+
+        .petalo:nth-child(1) {
+
+            top: 0;
+            left: 17px;
+        }
+
+
+        .petalo:nth-child(2) {
+
+            top: 10px;
+            left: 0;
+
+            transform:
+                rotate(-45deg);
+        }
+
+
+        .petalo:nth-child(3) {
+
+            top: 10px;
+            right: 0;
+
+            transform:
+                rotate(45deg);
+        }
+
+
+        .petalo:nth-child(4) {
+
+            bottom: 0;
+            left: 17px;
+
+            transform:
+                rotate(180deg);
+        }
+
+
+        /* =====================================
+           CENTRO DE LA FLOR
+        ===================================== */
+
+        .centro {
+
+            position: absolute;
+
+            width: 23px;
+            height: 23px;
+
+            top: 22px;
+            left: 22px;
+
+            background: #8b5900;
+
+            border-radius: 50%;
+
+            z-index: 2;
+
+            box-shadow:
+                inset 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+
+        /* =====================================
+           FLORES QUE APARECEN AL HACER CLICK
+        ===================================== */
+
+        .florFlotante {
+
+            position: fixed;
+
+            bottom: -50px;
+
+            font-size: 25px;
+
+            z-index: 20;
+
+            pointer-events: none;
+        }
+
+
+        /* =====================================
+           ESTRELLA FUGAZ
+        ===================================== */
+
+        .estrellaFugaz {
+
+            position: fixed;
+
+            width: 100px;
+            height: 2px;
+
+            background:
+                linear-gradient(
+                    to right,
+                    transparent,
+                    white
+                );
+
+            transform:
+                rotate(-35deg);
+
+            top: 20%;
+
+            left: -120px;
+
+            z-index: 3;
+
+            animation:
+                estrellaFugaz 2s linear;
+        }
+
+
+        @keyframes estrellaFugaz {
+
+            from {
+
+                left: -120px;
+
+                opacity: 1;
+            }
+
+            to {
+
+                left: 120%;
+
+                opacity: 0;
+            }
+        }
+
+
+        /* =====================================
+           TABLETS
+        ===================================== */
+
+        @media (max-width: 768px) {
+
+            .contenido {
+
+                padding:
+                    100px
+                    20px
+                    180px;
+            }
+
+
+            .luna {
+
+                width: 65px;
+                height: 65px;
+
+                top: 30px;
+                right: 30px;
+            }
+
+
+            .flores {
+
+                height: 145px;
+            }
+
+
+            .flor {
+
+                transform:
+                    scale(0.75);
+
+                transform-origin:
+                    bottom center;
+            }
+        }
+
+
+        /* =====================================
+           CELULARES
+        ===================================== */
+
+        @media (max-width: 600px) {
+
+            .contenido {
+
+                min-height: 100vh;
+
+                padding:
+                    100px
+                    18px
+                    170px;
+            }
+
+
+            h1 {
+
+                font-size: 32px;
+
+                line-height: 1.2;
+
+                margin-bottom: 15px;
+            }
+
+
+            .subtitulo {
+
+                font-size: 17px;
+
+                line-height: 1.5;
+
+                max-width: 350px;
+
+                margin-bottom: 25px;
+            }
+
+
+            button {
+
+                width: auto;
+
+                max-width: 90%;
+
+                padding:
+                    14px
+                    20px;
+
+                font-size: 15px;
+            }
+
+
+            #mensaje {
+
+                width: 100%;
+
+                max-width: 360px;
+
+                padding: 20px;
+
+                margin-top: 25px;
+
+                border-radius: 20px;
+            }
+
+
+            #mensaje p {
+
+                font-size: 16px;
+
+                line-height: 1.65;
+            }
+
+
+            .luna {
+
+                width: 55px;
+                height: 55px;
+
+                top: 25px;
+                right: 25px;
+            }
+
+
+            .flores {
+
+                height: 125px;
+
+                justify-content:
+                    center;
+
+                gap: 0;
+            }
+
+
+            .flor {
+
+                transform:
+                    scale(0.62);
+
+                margin:
+                    0 -8px;
+            }
+        }
+
+
+        /* =====================================
+           CELULARES MUY PEQUEÑOS
+        ===================================== */
+
+        @media (max-width: 380px) {
+
+            .contenido {
+
+                padding:
+                    90px
+                    15px
+                    145px;
+            }
+
+
+            h1 {
+
+                font-size: 28px;
+            }
+
+
+            .subtitulo {
+
+                font-size: 15px;
+            }
+
+
+            button {
+
+                font-size: 14px;
+
+                padding:
+                    13px
+                    18px;
+            }
+
+
+            #mensaje {
+
+                max-width: 330px;
+
+                padding: 17px;
+            }
+
+
+            #mensaje p {
+
+                font-size: 15px;
+
+                line-height: 1.6;
+            }
+
+
+            .flores {
+
+                height: 110px;
+            }
+
+
+            .flor {
+
+                transform:
+                    scale(0.52);
+
+                margin:
+                    0 -10px;
+            }
+
+
+            /* En celulares muy pequeños dejamos
+               solo tres flores */
+
+            .flor:nth-child(4) {
+
+                display: none;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         ESTRELLAS
+    ====================================== -->
+
+    <div
+        class="estrellas"
+        id="estrellas">
+    </div>
+
+
+    <!-- =====================================
+         LUNA
+    ====================================== -->
+
+    <div class="luna"></div>
+
+
+    <!-- =====================================
+         CONTENIDO
+    ====================================== -->
+
+    <main class="contenido">
+
+        <h1>
+            Para una amiga muy especial 💛
+        </h1>
+
+
+        <p class="subtitulo">
+
+            Porque hay personas que hacen
+            que la vida sea mucho más bonita
+            simplemente por estar en ella. ✨
+
+        </p>
+
+
+        <button
+            id="boton"
+            onclick="mostrarMensaje()">
+
+            🌻 Tengo algo que decirte
+
+        </button>
+
+
+        <!-- =================================
+             MENSAJE
+        ================================== -->
+
+        <div id="mensaje">
+
+            <p>
+
+                Feliz Día del Amor y la Amistad 💛
+
+                <br><br>
+
+                Quería aprovechar este día para
+                recordarte lo importante que eres
+                para mí.
+
+                <br><br>
+
+                Gracias por cada risa, cada
+                conversación, cada momento y por
+                estar ahí incluso en los días
+                difíciles.
+
+                <br><br>
+
+                Nuestra amistad es de esas cosas
+                que uno realmente agradece tener
+                en la vida.
+
+                <br><br>
+
+                Espero que nunca te falten motivos
+                para sonreír, personas que te
+                quieran de verdad y momentos que
+                se conviertan en buenos recuerdos.
+
+                <br><br>
+
+                🌻 Gracias por ser una amiga
+                increíble. 🌻
+
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================
+         FLORES
+    ====================================== -->
+
+    <div class="flores">
+
+
+        <!-- FLOR 1 -->
+
+        <div class="flor">
+
+            <div class="petalos">
+
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+
+                <div class="centro"></div>
+
+            </div>
+
+            <div class="tallo"></div>
+
+        </div>
+
+
+        <!-- FLOR 2 -->
+
+        <div class="flor">
+
+            <div class="petalos">
+
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+
+                <div class="centro"></div>
+
+            </div>
+
+            <div class="tallo"></div>
+
+        </div>
+
+
+        <!-- FLOR 3 -->
+
+        <div class="flor">
+
+            <div class="petalos">
+
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+
+                <div class="centro"></div>
+
+            </div>
+
+            <div class="tallo"></div>
+
+        </div>
+
+
+        <!-- FLOR 4 -->
+
+        <div class="flor">
+
+            <div class="petalos">
+
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+                <div class="petalo"></div>
+
+                <div class="centro"></div>
+
+            </div>
+
+            <div class="tallo"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script>
+
+
+        /* =================================
+           CREAR ESTRELLAS
+        ================================== */
+
+        const estrellas =
+            document.getElementById("estrellas");
+
+
+        for (
+            let i = 0;
+            i < 120;
+            i++
+        ) {
+
+            const estrella =
+                document.createElement("div");
+
+
+            estrella.classList.add(
+                "estrella"
+            );
+
+
+            /* Posición */
+
+            estrella.style.left =
+                Math.random() * 100 + "%";
+
+
+            estrella.style.top =
+                Math.random() * 80 + "%";
+
+
+            /* Tamaño */
+
+            const tamaño =
+                Math.random() * 3 + 1;
+
+
+            estrella.style.width =
+                tamaño + "px";
+
+
+            estrella.style.height =
+                tamaño + "px";
+
+
+            /* Animación */
+
+            estrella.style.animationDelay =
+                Math.random() * 3 + "s";
+
+
+            estrellas.appendChild(
+                estrella
+            );
+        }
+
+
+
+        /* =================================
+           MOSTRAR MENSAJE
+        ================================== */
+
+        function mostrarMensaje() {
+
+
+            const mensaje =
+                document.getElementById(
+                    "mensaje"
+                );
+
+
+            const boton =
+                document.getElementById(
+                    "boton"
+                );
+
+
+            /* Mostrar mensaje */
+
+            mensaje.style.display =
+                "block";
+
+
+            /* Cambiar botón */
+
+            boton.innerHTML =
+                "🌻 Para ti, con mucho cariño 💛";
+
+
+            /* Crear flores */
+
+            crearFlores();
+
+
+            /* Crear estrella fugaz */
+
+            crearEstrellaFugaz();
+
+
+            /* Desplazar suavemente
+               hacia el mensaje */
+
+            setTimeout(() => {
+
+                mensaje.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            }, 300);
+
+        }
+
+
+
+        /* =================================
+           CREAR FLORES FLOTANTES
+        ================================== */
+
+        function crearFlores() {
+
+
+            for (
+                let i = 0;
+                i < 20;
+                i++
+            ) {
+
+
+                const flor =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                flor.classList.add(
+                    "florFlotante"
+                );
+
+
+                flor.innerHTML = "🌻";
+
+
+                /* Posición */
+
+                flor.style.left =
+                    Math.random() * 100 + "%";
+
+
+                flor.style.fontSize =
+                    Math.random() * 15 + 20
+                    + "px";
+
+
+                document.body.appendChild(
+                    flor
+                );
+
+
+                /* Duración */
+
+                const duracion =
+                    Math.random() * 3 + 3;
+
+
+                /* Animación */
+
+                flor.animate(
+
+                    [
+
+                        {
+                            transform:
+                                "translateY(0) rotate(0deg)",
+
+                            opacity: 1
+                        },
+
+                        {
+                            transform:
+                                `translateY(-${window.innerHeight + 100}px)
+                                 rotate(360deg)`,
+
+                            opacity: 0
+                        }
+
+                    ],
+
+                    {
+
+                        duration:
+                            duracion * 1000,
+
+                        easing:
+                            "ease-out"
+                    }
+                );
+
+
+                /* Eliminar */
+
+                setTimeout(() => {
+
+                    flor.remove();
+
+                }, duracion * 1000);
+
+            }
+
+        }
+
+
+
+        /* =================================
+           ESTRELLA FUGAZ
+        ================================== */
+
+        function crearEstrellaFugaz() {
+
+
+            const estrella =
+                document.createElement(
+                    "div"
+                );
+
+
+            estrella.classList.add(
+                "estrellaFugaz"
+            );
+
+
+            document.body.appendChild(
+                estrella
+            );
+
+
+            setTimeout(() => {
+
+                estrella.remove();
+
+            }, 2000);
+
+        }
+
+
+        /* =================================
+           ESTRELLAS FUGACES AUTOMÁTICAS
+        ================================== */
+
+        setInterval(() => {
+
+            crearEstrellaFugaz();
+
+        }, 8000);
+
+
+    </script>
+
+
+</body>
+
+</html>
+
